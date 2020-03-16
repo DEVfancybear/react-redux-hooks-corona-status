@@ -1,11 +1,11 @@
-import React from "react";
+import React, { Fragment } from "react";
 import "./App.scss";
-
+import Card from "./components/Card";
 const App = () => {
   return (
-    <div>
-      hello
-    </div>
+    <Fragment>
+      <Card />
+    </Fragment>
   );
 };
 
