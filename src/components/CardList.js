@@ -1,12 +1,16 @@
-import React from "react";
-
+import React, { useState, useEffect } from "react";
+import { getCountryImg } from "../function";
 const CardList = ({ dataCorona: { attributes } }) => {
+  const [list, setList] = useState([]);
+  useEffect(() => {
+    setList(getCountryImg);
+  }, []);
   return (
     <div>
       <div className="card-item">
         <div className="clash-card">
           <div className="clash-card__image clash-card__image--archer">
-            <img className="country-symbol" />
+            <img className="country-symbol" src={list} />
           </div>
           <div className="clash-card__level clash-card__level--archer"></div>
           <div className="clash-card__unit-name">

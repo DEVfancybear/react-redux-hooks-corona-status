@@ -1,20 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import CardList from "./CardList";
 import { connect } from "react-redux";
-import { fetchDataCorona, fetchDataListsImages } from "../actions/index";
+import { fetchDataCorona } from "../actions/index";
 import Spinner from "./Spinners";
-const Card = ({
-  corona: { dataCorona, dataImages, loading },
-  fetchDataCorona,
-  fetchDataListsImages
-}) => {
+const Card = ({ corona: { dataCorona, loading }, fetchDataCorona }) => {
   useEffect(() => {
     fetchDataCorona();
-    fetchDataListsImages();
+
     //eslint-disable-next-line
   }, []);
 
-  if (loading || dataCorona === null || dataImages === null) {
+  if (loading || dataCorona === null) {
     return <Spinner />;
   }
 
@@ -40,9 +36,6 @@ const mapDispatchToProps = (dispatch, props) => {
   return {
     fetchDataCorona: () => {
       dispatch(fetchDataCorona());
-    },
-    fetchDataListsImages: () => {
-      dispatch(fetchDataListsImages());
     }
   };
 };

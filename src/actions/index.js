@@ -11,17 +11,6 @@ export const fetchDataCorona = () => {
     dispatch({ type: types.FETCH_DATA_CORONA_RUNTIME, payload: data });
   };
 };
-export const fetchDataListsImages = () => {
-  return async dispatch => {
-    setLoading();
-    const resp = await axios.get("http://localhost:3899/data");
-    const data = resp.data;
-    dispatch({
-      type: types.FETCH_DATA_LISTS_IMAGE,
-      payload: data
-    });
-  };
-};
 export const setLoading = () => {
   return {
     type: types.SET_LOADING
