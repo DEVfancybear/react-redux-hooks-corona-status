@@ -1,9 +1,10 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import CardList from "./CardList";
 import { connect } from "react-redux";
 import { fetchDataCorona, fetchDataListsImages } from "../actions/index";
+import Spinner from "./Spinners";
 const Card = ({
-  corona: { dataCorona, dataImages },
+  corona: { dataCorona, dataImages, loading },
   fetchDataCorona,
   fetchDataListsImages
 }) => {
@@ -13,13 +14,19 @@ const Card = ({
     //eslint-disable-next-line
   }, []);
 
+  if (loading || dataCorona === null || dataImages === null) {
+    return <Spinner />;
+  }
+
   return (
     <div>
       <div className="card-list">
-        {/* {dataImages.map(item=> {
-       return <CardList data={item}/>
-     })} */}
-        {console.log(dataCorona, dataImages)}
+        {dataCorona.features.map((item, index) => {
+          console.log(item.attributes);
+          return <CardList key={index} dataCorona={item} />;
+        })}
+
+        {/* {console.log(dataCorona.features, dataImages)} */}
       </div>
     </div>
   );
