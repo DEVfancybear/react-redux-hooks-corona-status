@@ -6,7 +6,6 @@ import Spinner from "./Spinners";
 const Card = ({ corona: { dataCorona, loading }, fetchDataCorona }) => {
   useEffect(() => {
     fetchDataCorona();
-
     //eslint-disable-next-line
   }, []);
 
@@ -21,7 +20,6 @@ const Card = ({ corona: { dataCorona, loading }, fetchDataCorona }) => {
           console.log(item.attributes);
           return <CardList key={index} dataCorona={item} />;
         })}
-
         {/* {console.log(dataCorona.features, dataImages)} */}
       </div>
     </div>
