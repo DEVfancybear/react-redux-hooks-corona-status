@@ -1,3 +1,3 @@
 import { combineReducers } from "redux";
-
-export default combineReducers({});
+import corona from "./corona";
+export default combineReducers({ corona });
