@@ -1,16 +1,19 @@
-import React, { useState, useEffect } from "react";
-import { getCountryImg } from "../function";
-const CardList = ({ dataCorona: { attributes } }) => {
+import React, { useEffect, useState } from "react";
+
+const CardList = ({ dataCorona: { attributes }, listImage }) => {
   const [list, setList] = useState([]);
   useEffect(() => {
-    setList(getCountryImg);
+    setList(listImage());
+    //eslint-disable-next-line
   }, []);
   return (
     <div>
       <div className="card-item">
         <div className="clash-card">
           <div className="clash-card__image clash-card__image--archer">
-            <img className="country-symbol" src={list} />
+            {/* <img className="country-symbol" src={listImage.url} /> */}
+            {/* {listImage} */}
+            <img className="country-symbol" alt="corona" src={list.url} />
           </div>
           <div className="clash-card__level clash-card__level--archer"></div>
           <div className="clash-card__unit-name">

@@ -16,3 +16,14 @@ export const setLoading = () => {
     type: types.SET_LOADING
   };
 };
+export const fetchDataListsImages = () => {
+  return async dispatch => {
+    setLoading();
+    const resp = await axios.get("http://localhost:3899/data");
+    const data = resp.data;
+    dispatch({
+      type: types.FETCH_DATA_LISTS_IMAGE,
+      payload: data
+    });
+  };
+};
