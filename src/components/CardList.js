@@ -1,13 +1,17 @@
 import React, { useEffect, useState } from "react";
 
 const CardList = ({ dataCorona: { attributes }, listImage }) => {
-  const [list, setList] = useState([]);
+  const [list, setList] = useState({});
   useEffect(() => {
     setList(listImage());
     //eslint-disable-next-line
   }, []);
+  const test = () => {
+    console.log(list);
+  };
   return (
     <div>
+      {test()}
       <div className="card-item">
         <div className="clash-card">
           <div className="clash-card__image clash-card__image--archer">
